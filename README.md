@@ -68,3 +68,7 @@ O banco de dados vai armazenar os dados principais do gerenciamento dos gatinhos
 * Gato - Diario > 1:N (um gato pode ter vários registros no diário)
 * Gato - Historico Médico > 1:N (um gato pode ter várias consultas)
 * Gato - Adoção - Adotante > N:M (um gato pode estar associado a diferentes adotantes adotantes, dependendo. Assim como um adotante pode ter vários gatos)
+
+## DER - Diagrama Entidade-Relacionamento
+
+![Diagrama ER](./docs/der/der.png)
