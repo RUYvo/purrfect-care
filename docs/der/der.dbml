@@ -1,0 +1,45 @@
+Table gato {
+  id int [pk, increment]
+  nome varchar
+  idade int
+  raca varchar
+  peso_atual decimal
+  foto_url varchar
+  status varchar
+  data_cadastro date
+}
+
+Table adotante {
+  id int [pk, increment]
+  nome varchar
+  email varchar
+  telefone varchar
+  endereco text
+}
+
+Table diario {
+  id int [pk, increment]
+  gato_id int [ref: > gato.id]
+  data_registro date
+  peso decimal
+  medicamento text
+  receita text
+}
+
+Table historicoMedico {
+  id int [pk, increment]
+  gato_id int [ref: > gato.id]
+  data_consulta date
+  veterinario varchar
+  diagnostico text
+  tratamento text
+}
+
+Table adocao {
+  id int [pk, increment]
+  gato_id int [ref: > gato.id]
+  adotante_id int [ref: > adotante.id]
+  data_inicio date
+  data_fim date
+  status varchar
+}
