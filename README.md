@@ -1,13 +1,13 @@
-# **PURRFECT CARE**
-Um sistema open-source para gerenciamento de gatinhos, com o objetivo de cadastrar, acompanhar, gerenciar gatinhos, entre outras funções que serão adicionadas futuramente. 
+# **ÍRIS**
+Um sistema open-source para gerenciamento de pets, com o objetivo de cadastrar, acompanhar, gerenciar bichinhos, entre outras funções que serão adicionadas futuramente. 
 Será desenvolvido com um front-end e back-end em Next.js e um banco hospedado no PostgreSQL.
 
 # BANCO DE DADOS
-O banco de dados vai armazenar os dados principais do gerenciamento dos gatinhos, como dados pessoais, histórico médico, processo de adoção e dos adotantes. Vai ser usado **PostgreSQL** por ser um banco de dados relacional robusto e mais utilizado para aplicações web com **Next.js**.
+O banco de dados vai armazenar os dados principais do gerenciamento dos pets, como dados pessoais, histórico médico, processo de adoção e dos adotantes. Vai ser usado **PostgreSQL** por ser um banco de dados relacional robusto e mais utilizado para aplicações web com **Next.js**.
 
 ## Entidades
 
-**Gato**: Representa cada animal cadastrado
+**Pet**: Representa cada animal cadastrado
 
 **Adotante**: Representa quem adotou o animal, ou tem interesse
 
@@ -15,16 +15,17 @@ O banco de dados vai armazenar os dados principais do gerenciamento dos gatinhos
 
 **Histórico Medico**: Todas as informações sobre consultas, diagnósticos, tratamentos, etc.
 
-**Adoção**: Entidade responsável por conectar o Gato e o Adotante
+**Adoção**: Entidade responsável por conectar o Pet e o Adotante
 
 
 ## Atributos
 
 
-**Gato**:
+**Pets**:
 * id (PK)
 * nome
 * idade
+* tipo
 * raça
 * peso_atual
 * foto_url
@@ -42,32 +43,33 @@ O banco de dados vai armazenar os dados principais do gerenciamento dos gatinhos
 **Diario**:
 
 * id (PK)
-* gato_id (FK-Gato.id)
-* data_registro
+* pets_id (FK-Pets.id)
+* registro_diario
 * peso
-* medicamento (texto livre)
-* receita (texto livre)
+* notas (texto livre)
+* observacao_receita (texto livre)
 
 **Histórico Medico**
 * id (PK)
-* gato_id (FK-Gato.id)
+* pets_id (FK-Pets.id)
 * data_consulta
 * veterinario
 * diagnostico
 * tratamento
+* receita
 
 **Adoção**
 * id(PK)
-* gato_id (FK-Gato.id)
+* pets_id (FK-Pets.id)
 * adotante_id (FK-Adotante.id)
 * data_inicio
 * data_fim (se houver)
 * status (ativa, finalizada, cancelada)
 
 ## Relacionamentos
-* Gato - Diario > 1:N (um gato pode ter vários registros no diário)
-* Gato - Historico Médico > 1:N (um gato pode ter várias consultas)
-* Gato - Adoção - Adotante > N:M (um gato pode estar associado a diferentes adotantes adotantes, dependendo. Assim como um adotante pode ter vários gatos)
+* Pet - Diario > 1:N (um pet pode ter vários registros no diário)
+* Pet - Historico Médico > 1:N (um pet pode ter várias consultas)
+* Pet - Adoção - Adotante > N:M (um pet pode estar associado a diferentes adotantes adotantes, dependendo. Assim como um adotante pode ter vários pets)
 
 ## DER - Diagrama Entidade-Relacionamento
 

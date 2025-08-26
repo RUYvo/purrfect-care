@@ -1,45 +1,47 @@
-Table gato {
-  id int [pk, increment]
-  nome varchar
-  idade int
-  raca varchar
-  peso_atual decimal
-  foto_url varchar
-  status varchar
-  data_cadastro date
+Table pets {
+  id int [pk, increment]              // id do animal
+  name varchar                        // nome do animal
+  age int                             // idade do animal
+  type varchar                        // tipo do animal (cachorro, gato)
+  race varchar                        // raça do animal
+  current_weight decimal              // peso atual do animal
+  url_photo varchar                   // url com foto do animal
+  status varchar                      // status do animal (disponível, adotado, em tratamento)
+  registration_date date              // data de cadastro do animal no sistema
 }
 
-Table adotante {
-  id int [pk, increment]
-  nome varchar
-  email varchar
-  telefone varchar
-  endereco text
+Table adopter {
+  id int [pk, increment]              // id do adotante
+  name varchar                        // nome do adotante 
+  email varchar                       // email do adotante 
+  telephone varchar                   // telefone do adotante
+  address text                        // endereço do adotante
 }
 
-Table diario {
-  id int [pk, increment]
-  gato_id int [ref: > gato.id]
-  data_registro date
-  peso decimal
-  medicamento text
-  receita text
+Table daily {
+  id int [pk, increment]              // id do registro diário
+  pets_id int [ref: > pets.id]        // id do animal
+  daily_date date                     // data do registro diário
+  weight decimal                      // peso do animal no dia do registro
+  notes text                          // observações adicionais do dia
+  prescription_notes text             // observações e status sobre a receita médica do dia
 }
 
-Table historicoMedico {
-  id int [pk, increment]
-  gato_id int [ref: > gato.id]
-  data_consulta date
-  veterinario varchar
-  diagnostico text
-  tratamento text
+Table medicalHistory {
+  id int [pk, increment]               // id do histórico médico
+  pets_id int [ref: > pets.id]         // id do animal
+  medical_date date                    // data do atendimento médico
+  veterinarian varchar                 // nome do veterinário
+  diagnosis text                       // diagnóstico do atendimento
+  treatment text                       // tratamento prescrito
+  prescription text                    // receita médica e medicamentos
 }
 
-Table adocao {
-  id int [pk, increment]
-  gato_id int [ref: > gato.id]
-  adotante_id int [ref: > adotante.id]
-  data_inicio date
-  data_fim date
-  status varchar
+Table adoption {
+  id int [pk, increment]                 // id da adoção
+  pets_id int [ref: > pets.id]           // id do animal
+  adopter_id int [ref: > adopter.id]     // id do adotante
+  start_date date                        // data de início da adoção  
+  end_date date                          // data de término da adoção
+  status varchar                         // status da adoção (ativa, concluída, cancelada)
 }
