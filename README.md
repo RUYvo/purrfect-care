@@ -20,6 +20,11 @@ O banco de dados vai armazenar os dados principais do gerenciamento dos pets, co
 
 ## Atributos
 
+**Usuario**
+* id
+* nome
+* email
+* data_criacao
 
 **Pets**:
 * id (PK)
@@ -31,7 +36,6 @@ O banco de dados vai armazenar os dados principais do gerenciamento dos pets, co
 * foto_url
 * status(disponível, em adoção, adotato)
 * data_cadastro
-
 
 **Adotante**:
 * id (PK)
@@ -69,7 +73,7 @@ O banco de dados vai armazenar os dados principais do gerenciamento dos pets, co
 ## Relacionamentos
 * Pet - Diario > 1:N (um pet pode ter vários registros no diário)
 * Pet - Historico Médico > 1:N (um pet pode ter várias consultas)
-* Pet - Adoção - Adotante > N:M (um pet pode estar associado a diferentes adotantes adotantes, dependendo. Assim como um adotante pode ter vários pets)
+* Pet - Adoção - Adotante > N:M (um pet pode estar associado a diferentes adotantes adotantes. Assim como um adotante pode ter vários pets)
 
 ## DER - Diagrama Entidade-Relacionamento
 
