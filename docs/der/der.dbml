@@ -1,3 +1,10 @@
+Table user {
+  id int [pk, increment]              // id do usuário
+  username varchar                    // nome de usuário
+  email varchar                       // email do usuário
+  created_at timestamp                // data de criação do usuário
+}
+
 Table pets {
   id int [pk, increment]              // id do animal
   name varchar                        // nome do animal
